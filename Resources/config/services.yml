@@ -1,0 +1,25 @@
+parameters:
+    rid.page.document.page.class: Rid\Bundle\PageBundle\Entity\Page
+    rid.page.repository.page.class: Rid\Bundle\PageBundle\Entity\RepositoryPage
+    rid.page.admin.page.class: Rid\Bundle\PageBundle\Admin\PageAdmin
+    rid.page.document.page.class: Rid\Bundle\PageBundle\Entity\Page
+    rid.page.document.repository.class: Rid\Bundle\PageBundle\Entity\PageRepository
+
+services:
+    rid.page.admin.page:
+        class: %rid.page.admin.page.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: rid_page, label: 'rid_page.db_label' }
+        arguments:
+            - ~
+            - %rid.page.document.page.class%
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [RidPageBundle]]
+
+    rid.page.repository.page:
+        class:            "%rid.page.repository.page.class%"
+        factory_service:  doctrine.orm.entity_manager
+        factory_method:   getRepository
+        arguments: [ %rid.page.document.page.class% ]
+

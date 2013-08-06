@@ -1,0 +1,7 @@
+#rid_page_list:
+#    pattern: /
+#    defaults: { _controller: RidPageBundle:Page:list }
+
+rid_page_show:
+    pattern: /{slug}
+    defaults: { _controller: RidPageBundle:Page:show }

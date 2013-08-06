@@ -1,0 +1,18 @@
+"Title": Назва
+"Is Published": Опубліковано
+"Is On Homepage": На головній
+"Slug": URL-ключ
+"Description": Опис
+"Body": Текст
+
+"Page List": Список сторінок
+"Description F": Опис
+"Body F": Текст
+
+"rid_page": Csss
+
+rid_page:
+    metaData: Мета теги
+    general: Головне
+    newPage: Нова сторінка
+    db_label: '"Статичні" сторінки'

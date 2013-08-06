@@ -1,0 +1,13 @@
+{% extends 'SonataAdminBundle:CRUD:base_show.html.twig' %}
+
+{% block show %}
+    <div class="sonata-ba-view rid-page page show">
+        {{ object.body|format_text(object.bodyFormatter)|raw }}
+    </div>
+
+    <style type="text/css">
+        .sonata-ba-view.rid-page.page.show{
+            width: 900px;
+        }
+    </style>
+{% endblock %}
