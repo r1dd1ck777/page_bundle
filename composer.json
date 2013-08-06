@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "Provides content pages for Symfony2",
     "keywords": ["Symfony2", "page"],
-    "homepage": "http://github.com/NewbridgeGreen/TestBundle",
+    "homepage": "https://github.com/r1dd1ck777/page_bundle",
     "license": "MIT",
     "authors": [
         {
