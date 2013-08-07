@@ -16,8 +16,9 @@ class PageAdmin extends Admin
         $formBuilder = $formMapper->getFormBuilder();
         $formMapper
         ->with('rid_page.general')
-            ->add('isPublished')
-            ->add('isOnHomepage')
+            ->add('isPublished', null, array('data' => true))
+            ->add('isOnHomepage', null, array('data' => true))
+            ->add('isPartial', null, array('data' => false))
             ->add('slug')
             ->add('title')
             ->add('descriptionF', 'sonata_formatter_type', array(
@@ -55,7 +56,6 @@ class PageAdmin extends Admin
     {
         $datagridMapper
             ->add('isPublished')
-            ->add('isOnHomepage')
             ->add('slug')
             ->add('title')
         ;
@@ -67,6 +67,7 @@ class PageAdmin extends Admin
             ->addIdentifier('title', 'text', array('label' => 'Title'))
             ->add('isPublished')
             ->add('isOnHomepage')
+            ->add('isPartial')
             ->add('slug')
             ->add('description', null, array('template'=>'RidPageBundle:Admin:page.list_field.description.html.twig'))
             ->add('body', null, array('template'=>'RidPageBundle:Admin:page.list_field.body.html.twig'))
