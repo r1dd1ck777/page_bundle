@@ -125,8 +125,16 @@ class Page
      */
     private $updatedAt;
 
-    //--
+    public function getSmartDescription()
+    {
+        return (!is_null($this->description) && $this->description != '')? $this->description : $this->getBody();
+    }
 
+    public function getSmartDescriptionFormatter()
+    {
+        return (!is_null($this->descriptionFormatter) && $this->descriptionFormatter != '')? $this->descriptionFormatter : $this->getBodyFormatter();
+    }
+    //--
 
     /**
      * Get id
@@ -269,7 +277,7 @@ class Page
     /**
      * Get descriptionFormatter
      *
-     * @return string 
+     * @return string
      */
     public function getDescriptionFormatter()
     {
@@ -292,7 +300,7 @@ class Page
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {

@@ -11,6 +11,10 @@ class PageController extends Controller
     {
         $page = $this->getPage($request);
 
+        if (!$page){
+            throw $this->createNotFoundException();
+        }
+
         /** @var \Sonata\SeoBundle\Seo\SeoPage $seoPage */
         $seoPage = $this->container->get('sonata.seo.page');
 

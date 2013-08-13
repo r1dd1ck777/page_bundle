@@ -16,22 +16,8 @@ class PageAdmin extends Admin
         $formBuilder = $formMapper->getFormBuilder();
         $formMapper
         ->with('rid_page.general')
-            ->add('isPublished', null, array('data' => true))
-            ->add('isOnHomepage', null, array('data' => true))
-            ->add('isPartial', null, array('data' => false))
             ->add('slug')
             ->add('title')
-            ->add('descriptionF', 'sonata_formatter_type', array(
-                'event_dispatcher' => $formBuilder->getEventDispatcher(),
-                'format_field'   => 'descriptionFormatter',
-                'source_field'   => 'description',
-                'source_field_options'      => array(
-                    'attr' => array('class' => 'span10', 'rows' => 20)
-                ),
-                'target_field'   => 'description',
-                'listener'       => true,
-            ))
-
             ->add('bodyF', 'sonata_formatter_type', array(
                 'event_dispatcher' => $formBuilder->getEventDispatcher(),
                 'format_field'   => 'bodyFormatter',
@@ -48,6 +34,21 @@ class PageAdmin extends Admin
             ->add('metaDescription')
             ->add('metaKeywords')
             ->add('metaAuthor')
+        ->end()
+        ->with('rid_page.additionalParams')
+            ->add('isPublished', null, array('data' => true))
+            ->add('isOnHomepage', null, array('data' => true))
+            ->add('isPartial', null, array('data' => false))
+            ->add('descriptionF', 'sonata_formatter_type', array(
+                'event_dispatcher' => $formBuilder->getEventDispatcher(),
+                'format_field'   => 'descriptionFormatter',
+                'source_field'   => 'description',
+                'source_field_options'      => array(
+                    'attr' => array('class' => 'span10', 'rows' => 20)
+                ),
+                'target_field'   => 'description',
+                'listener'       => true,
+            ))
         ->end()
         ;
     }
