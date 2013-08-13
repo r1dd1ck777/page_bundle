@@ -2,6 +2,7 @@
 
 {% block content %}
     <div class="rid-page page show">
+        <h2>{{ page.title }}</h2>
         {{ page.body|format_text(page.bodyFormatter)|raw }}
     </div>
 {% endblock %}
