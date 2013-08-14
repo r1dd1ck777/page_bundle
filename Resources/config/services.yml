@@ -9,7 +9,7 @@ services:
     rid.page.admin.page:
         class: %rid.page.admin.page.class%
         tags:
-            - { name: sonata.admin, manager_type: orm, group: rid_page, label: 'rid_page.db_label' }
+            - { name: sonata.admin, manager_type: orm, group: rid_page_group, label: 'rid_page.db_label', label_catalogue: "RidPageBundle" }
         arguments:
             - ~
             - %rid.page.document.page.class%
