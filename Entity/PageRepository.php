@@ -4,7 +4,7 @@ namespace Rid\Bundle\PageBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
-class PageRepository extends EntityRepository
+class PageRepository extends EntityRepository implements PageRepositoryInterface
 {
     public function getOneBySlug($slug)
     {

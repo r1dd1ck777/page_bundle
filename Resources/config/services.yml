@@ -4,6 +4,8 @@ parameters:
     rid.page.admin.page.class: Rid\Bundle\PageBundle\Admin\PageAdmin
     rid.page.document.page.class: Rid\Bundle\PageBundle\Entity\Page
     rid.page.document.repository.class: Rid\Bundle\PageBundle\Entity\PageRepository
+    rid_page.class: Rid\Bundle\PageBundle\Services\RidPageManager
+    rid.page.twig_extension.page.class: Rid\Bundle\PageBundle\Twig\RidPageExtension
 
 services:
     rid.page.admin.page:
@@ -23,3 +25,14 @@ services:
         factory_method:   getRepository
         arguments: [ %rid.page.document.page.class% ]
 
+    rid_page:
+        class: %rid_page.class%
+        calls:
+            - [ setRepository, [@rid.page.repository.page]]
+
+    rid.page.twig_extension.page:
+        class: %rid.page.twig_extension.page.class%
+        tags:
+            - { name: twig.extension }
+        calls:
+            - [ setManager, [ @rid_page ] ]
