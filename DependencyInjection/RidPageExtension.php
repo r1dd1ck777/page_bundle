@@ -43,6 +43,10 @@ class RidPageExtension extends Extension
             $config['template']['list'] = 'RidPageBundle:Page:list.html.twig';
         }
 
+        if (!isset($config['template']['list'])){
+            $config['template']['render'] = 'RidPageBundle:Page/partials:_render.html.twig';
+        }
+
         return $config;
     }
 }
