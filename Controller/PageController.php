@@ -40,6 +40,15 @@ class PageController extends Controller
         ));
     }
 
+    public function renderPageAction()
+    {
+        $page = $this->get('rid.page.repository.page')->getOneBySlug($this->getRequest()->get('slug', 'default'));
+
+        return $this->render($this->getRenderTemplate(),
+            array('page' => $page)
+        );
+    }
+
     /** @return \Rid\Bundle\PageBundle\Entity\Page */
     public function getPage(Request $request)
     {
@@ -63,5 +72,12 @@ class PageController extends Controller
         $parameters = $this->container->getParameter('rid_page');
 
         return $parameters['template']['layout'];
+    }
+
+    public function getRenderTemplate()
+    {
+        $parameters = $this->container->getParameter('rid_page');
+
+        return $parameters['template']['render'];
     }
 }

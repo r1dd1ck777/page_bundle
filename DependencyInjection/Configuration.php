@@ -30,6 +30,8 @@ class Configuration implements ConfigurationInterface
                         ->end()
                         ->scalarNode('show')->defaultValue('RidPageBundle:Page:show.html.twig')
                         ->end()
+                        ->scalarNode('render')->defaultValue('RidPageBundle:Page/partials:_render.html.twig')
+                        ->end()
                     ->end()
                 ->end()
             ->end();

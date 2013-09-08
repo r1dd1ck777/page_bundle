@@ -13,6 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Page
 {
+    const FORMATTER_RICHHTML = 'richhtml';
     /**
      * @var integer
      *
@@ -62,7 +63,7 @@ class Page
      *
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $descriptionFormatter;
+    private $descriptionFormatter = self::FORMATTER_RICHHTML;
 
     /**
      * @var string
@@ -76,7 +77,7 @@ class Page
      *
      * @ORM\Column(type="string", length=255)
      */
-    private $bodyFormatter;
+    private $bodyFormatter = self::FORMATTER_RICHHTML;
 
     /**
      * @var string
@@ -124,6 +125,24 @@ class Page
      * @ORM\Column(name="updatedAt", type="datetime")
      */
     private $updatedAt;
+
+    protected $notFound = false;
+
+    /**
+     * @param boolean $notFound
+     */
+    public function setNotFound($notFound)
+    {
+        $this->notFound = $notFound;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isNotFound()
+    {
+        return $this->notFound;
+    }
 
     public function getSmartDescription()
     {
