@@ -1,0 +1,19 @@
+"Title": Название
+"Is Published": Опубликовано
+"Is On Homepage": На главной
+"Slug": URL-ключ
+"Description": Описание
+"Body": Текст
+
+"Page List": Список страниц
+"Description F": Описание
+"Body F": Текст
+"Is Partial": Партиал
+
+rid_page_group: ' '
+rid_page:
+    metaData: Мета теги
+    general: Главное
+    newPage: Новая страница
+    db_label: 'Страницы'
+    additionalParams: Дополнительные параметры

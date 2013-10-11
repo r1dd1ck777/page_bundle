@@ -8,7 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Page
  *
- * @ORM\Table(name="rid_page")
+ * @ORM\Table(name="rid_page", indexes={@ORM\Index(name="slug_idx", columns={"slug"})})
  * @ORM\Entity(repositoryClass="Rid\Bundle\PageBundle\Entity\PageRepository")
  */
 class Page
@@ -127,6 +127,11 @@ class Page
     private $updatedAt;
 
     protected $notFound = false;
+
+    public function __toString()
+    {
+        return "/{$this->getSlug()}";
+    }
 
     /**
      * @param boolean $notFound
