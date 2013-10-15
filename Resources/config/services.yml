@@ -29,6 +29,7 @@ services:
         class: %rid_page.class%
         calls:
             - [ setRepository, [@rid.page.repository.page]]
+            - [ setSeoPage, [@sonata.seo.page]]
 
     rid.page.twig_extension.page:
         class: %rid.page.twig_extension.page.class%

@@ -15,24 +15,8 @@ class PageController extends Controller
             throw $this->createNotFoundException();
         }
 
-        /** @var \Sonata\SeoBundle\Seo\SeoPage $seoPage */
-        $seoPage = $this->container->get('sonata.seo.page');
-
-        if ($page->getMetaTitle()) {
-            $seoPage->setTitle($page->getMetaTitle());
-        }
-
-        if ($page->getMetaDescription()) {
-            $seoPage->addMeta('name', 'description', $page->getMetaDescription());
-        }
-
-        if ($page->getMetaKeywords()) {
-            $seoPage->addMeta('name', 'keywords', $page->getMetaKeywords());
-        }
-
-        if ($page->getMetaAuthor()){
-            $seoPage->addMeta('name', 'author', $page->getMetaAuthor());
-        }
+        $pageManager = $this->container->get('rid_page');
+        $pageManager->setupSeo($page);
 
         return $this->render($this->getShowTemplate(), array(
             'page' => $page,
